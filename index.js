@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const PORT = 8888;
+const PORT = process.env.PORT || 8888;
 
 app.get("/status", (req, res) => {
     const localtime = (new Date()).toLocaleTimeString();
@@ -13,4 +13,4 @@ app.get("*", (req, res) => {
     res.sendStatus(404);
 })
 
-app.listen(PORT, () => console.log("server is running on port 8888"));
+app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
